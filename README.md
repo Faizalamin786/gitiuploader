@@ -1,4 +1,5 @@
 Image Upload App
+--------------------
 This project is a full-stack application that allows users to upload images through a React front-end and stores them using an Express back-end with MongoDB. Follow the instructions below to set up and run the application.
 
 Prerequisites
