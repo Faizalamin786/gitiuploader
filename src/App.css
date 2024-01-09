@@ -1,38 +1,91 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: url("./night-1927265.jpg");
+  font-family: 'Arial', sans-serif;
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background 5s ease-in-out;
+  transform-style: preserve-3d;
+  background-color: #cccccc;
+  height: 200px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+
+}
+
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+  color: #fff;
+  padding: 20px;
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  background: rgba(0, 0, 0, 0.6);
+  padding: 20px;
+}
+
+.dropzone {
+  border: 2px dashed #fff;
+  padding: 20px;
+  margin: 20px;   
+  cursor: pointer;
+}
+
+.upload-button,
+.camera-button,
+.capture-button {
+  background-color: #4caf50;
   color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
-.App-link {
-  color: #61dafb;
+
+.camera-button:hover,
+.capture-button:hover {
+  background-color: blueviolet;
+  transform: translateX(+5px); /* Shaky appearance towards left */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+
+.camera-button:active,
+.capture-button:active {
+  transform: translateX(+5px); /* Shaky appearance towards right */
+}
+.upload-button:hover{
+  background-color: red;
+  transform: translate(-5px);
+}
+.preview-image {
+  max-width: 120px;
+  margin-top: 20px;
+  border: 2px solid #fff;
+  border-radius: 4px;
+}
+
+/* Add this CSS for the fading animation */
+.App-header:hover {
+  background: rgba(0, 0, 0, 0.8);
+  transition: 0.5s ease-in-out;
+  transform: translate(-10px,-5px);
+}
+/* Additional styles for the mobile view */
+@media (max-width: 600px) {
+  .dropzone {
+    margin: 10px;
   }
 }
