@@ -1,70 +1,78 @@
-# Getting Started with Create React App
+Image Upload App
+This project is a full-stack application that allows users to upload images through a React front-end and stores them using an Express back-end with MongoDB. Follow the instructions below to set up and run the application.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Prerequisites
+----------------
+•Node.js installed on your machine
+•MongoDB installed locally or a MongoDB Atlas account for cloud storage
+•Firebase account for setting up Cloud Storage
 
-## Available Scripts
+Project Structure
+----------------
+•gitiuploader/react-app: React front-end application.
+•gitiuploader/express-server: Express back-end server.
 
-In the project directory, you can run:
+React App
+Setup
+---------
+1) Clone the repository:
+---------------------------
+git clone https://github.com/Faizalamin786/gitiuploader.git
 
-### `npm start`
+2)Navigate to the react-app directory:
+----------------------------------
+cd gitiuploader/react-app
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+3)Install dependencies:
+---------------------------
+npm install
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+4)Create a Firebase project and set up the Firebase configuration in:
+---------------------------------------------------------------
+src/firebase.js:
 
-### `npm test`
+// src/firebase.js
+import { initializeApp } from "firebase/app";
+import { getStorage } from 'firebase/storage';
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+const firebaseConfig = {
+    // Your Firebase configuration
+};
 
-### `npm run build`
+const app = initializeApp(firebaseConfig);
+export const imageDb = getStorage(app);
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+5)Start the React app:
+------------------
+npm start
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+6)Open http://localhost:3000 in your browser.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Express Server
+Setup
+-----------------
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1)Navigate to the express-server directory:
+----------------------------------------
+cd gitiuploader/express-server
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+2)Install dependencies:
+---------------------------
+npm install
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+3)Set up MongoDB connection in server.js:
+-----------------------------------------
+mongoose.connect('mongodb+srv://Faizal:Faizal786@faizal.atlxp5u.mongodb.net/your-database-name', {
+});
 
-## Learn More
+4)Start the Express server:
+-----------------------------
+npm start
+Open http://localhost:3001 in your browser to check if the server is running.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Notes
+-------
+•The React app is configured to work with Firebase Cloud Storage. Ensure your Firebase project settings match the configurations in src/firebase.js.
+•The Express server handles image uploads and saves them to MongoDB. Check MongoDB connection details and update them in express-server/server.js.
